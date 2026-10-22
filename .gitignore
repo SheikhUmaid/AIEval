@@ -1,0 +1,5 @@
+coach_env/
+evidence_data/
+.env
+.env*
+__pycache__/

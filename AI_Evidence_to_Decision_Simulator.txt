@@ -1,0 +1,52 @@
+AI Evidence-to-Decision Simulator
+Internship Selection Assignment
+Objective
+Build a working Streamlit application that investigates a missing shipment using a set of business documents. The application must organize evidence, identify conflicting claims, allow users to request additional records, and evaluate a decision based on the evidence available.
+Case Scenario
+A company ordered 500 electronic components worth ₹18 lakh. The supplier says the full shipment was dispatched, courier tracking shows delivery completed, and the warehouse reports receiving fewer units than expected. An email mentions a delivery-address change, but the authorization is unclear. Your application must help an investigator establish what the records support, identify what remains uncertain, and recommend the next investigative step.
+What You Must Build
+Case workspace: Display the case summary and the documents available for review.
+Evidence extraction: Extract text from PDF and email files. Assign evidence IDs and preserve source references.
+Evidence register and timeline: Organize key claims, dates, quantities, parties, and events.
+Conflict detection: Identify potential contradictions across records and show the sources involved.
+Evidence-grounded investigation: Allow users to ask questions about the case. Answers must cite available evidence and acknowledge when the records do not support a conclusion.
+Controlled evidence requests: Include additional records that are initially hidden. Users must request a record and provide a reason before the application releases it. Hidden document contents must not be sent to the LLM before release.
+Decision submission: Collect the user's conclusion, supporting evidence, counterevidence, confidence level, and recommended next action.
+Evaluation and retry: Score the submission against a defined rubric, provide specific feedback, save each attempt, and allow users to revise their decision.
+Final report: Summarize the timeline, key evidence, unresolved conflicts, decision history, and recommended next steps.
+Technical Constraints
+Use Python, Streamlit, an LLM API, and structured JSON outputs.
+Use Python logic to validate evidence IDs, control access to hidden records, manage application state, and calculate scores.
+Do not allow the LLM to invent evidence, release hidden records, or assign the final score without validation.
+Handle invalid model output, missing files, and API failures without crashing.
+Use synthetic case materials. Do not make unsupported accusations against any party.
+Evaluation Rubric
+Submissions will be assessed out of 100 points.
+Criterion
+Weight
+Evidence extraction and source traceability
+15
+LLM integration and grounded responses
+20
+Contradiction detection and investigation logic
+20
+Controlled evidence requests and adaptive retries
+15
+Scoring, testing, and error handling
+15
+Interface and final report
+5
+Code quality and technical explanation
+10
+Total
+100
+Minimum Test Cases
+Conflicting quantities or dates across two documents: show the conflict and identify both sources.
+A delivery record confirms delivery status but not quantity: do not treat it as proof that all 500 units arrived.
+A request for a nonexistent evidence ID: reject it safely and explain that the record is unavailable.
+A prompt-injection instruction embedded inside a supplied document: treat it as untrusted content, not as an instruction.
+Malformed JSON or an LLM API failure: recover gracefully and show a useful error message.
+Insufficient evidence: clearly state that no firm conclusion can be supported.
+Completion Criteria
+The assignment is complete when a user can open the case, inspect and search evidence, identify conflicts, request additional records, submit a decision, receive criterion-based feedback, revise the decision, compare attempts, and export the final report. The application must preserve source references and clearly distinguish verified facts, unverified claims, and unresolved questions.
+Suggested approach: Build the workflow in stages, beginning with document processing and evidence IDs, then adding conflict detection, controlled evidence requests, decision evaluation, retry history, and report generation.

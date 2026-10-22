@@ -1,0 +1,17 @@
+AI-Powered Text Summarizer
+PRACTICAL TASK
+Build a simple Streamlit application that accepts text from a user and uses Gemini to create a short summary.
+Requirements
+1. Create a text area where users can enter a paragraph or article.
+2. Add a button labelled “Summarize”.
+3. When the button is clicked, send the entered text to Gemini using the existing ask_ai() function from llm.py.
+4. Display the generated summary on the webpage.
+5. If the user clicks the button without entering text, display a warning.
+Expected Output
+A working Streamlit application where the user enters text, clicks Summarize, and sees an AI-generated summary.
+Instructions
+Create a new Python file named text_summarizer.py.
+Reuse the existing llm.py file and its ask_ai() function.
+Write the Streamlit code in text_summarizer.py.
+Run and test the application with a sample paragraph.
+Test the warning by clicking Summarize with the text area empty.
